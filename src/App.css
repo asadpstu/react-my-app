@@ -1,10 +1,26 @@
 .App {
-  text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+/* login box */
+.login-form {
+  width: 33%;
+  margin: 0 auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width: 567px) {
+  .login-form {
+    width: 80%!important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
