@@ -2,11 +2,16 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { emailValidation,passwordValidation } from '../index';
-export const LoginFrom = () =>{
+import { connect } from 'react-redux';
+import actionTypes from '../../constants/actionTypes.const';
+const LoginFrom = ({dispatch}) =>{
+    const navigate = useNavigate()
     const [loginState,setLoginState] = useState({email : '', password : ''})
-    const [errors,setErrors] = useState({email : true, password : []})
+    const [errors,setErrors] = useState({email : true, password : ['']})
     const [disabled, setDisabled] = useState(true)
+    const [isLoading, setIsloading] = useState(false)
     const updateLoginState = (e) =>{
         const {name,value} = e.target;
         let tempState = loginState
@@ -26,6 +31,7 @@ export const LoginFrom = () =>{
                 setErrors({email : false, password : []})
         }
         setErrors({...tempError})
+        console.log()
         if(tempError.email === false || tempError.password.length > 0) setDisabled(true)
         else setDisabled(false)
         setLoginState({...tempState})
@@ -34,7 +40,23 @@ export const LoginFrom = () =>{
     const submitLoginForm = (e) =>{
       e.preventDefault();
       const payload = loginState;
-      console.log(payload)
+
+      setIsloading(true) 
+      setTimeout(() => {
+        setIsloading(false)
+        dispatch({type : actionTypes.USER_LOGIN, payload : {
+            name: "Asad zaman",
+            email: payload.email,
+            userName: payload.email.split('@')[0],
+            gender: "Male",
+            permissions: ['dashboard','query'],
+            isLoggedIn : true,
+            language : "en"
+          }
+        })
+        navigate('/dashboard')
+      }, 500);
+      
     }
 
 
@@ -57,18 +79,29 @@ export const LoginFrom = () =>{
             
             errors.password.length > 0 && 
             errors.password.map((value,index)=>{
-              return <div key={index}><Form.Text className="text-danger" key={index}>{index+1}. {value}</Form.Text></div>
+              return <div key={index}><Form.Text className="text-danger" key={index}> {value}</Form.Text></div>
             })
             
         }
     
     </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-    </Form.Group>
     
-    <Button variant="primary" type="submit" onClick={(e)=>submitLoginForm(e)} disabled={disabled}>
-        Submit
+    <Button style={{background:'#fce4ec', color : '#000', border:'2px solid #c9b2ba'}} type="submit" onClick={(e)=>submitLoginForm(e)} disabled={disabled}>
+        {isLoading ? 'Trying to login..' : 'Login'}
     </Button>
     </Form>;
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    dispatch
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginFrom)

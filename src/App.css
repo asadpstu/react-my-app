@@ -7,6 +7,30 @@
   pointer-events: none;
 }
 
+/* Backgraund css for login */
+.login-page{
+  background-color: #000;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.background-video{
+  height: 100%;
+  opacity: .3;
+}
+
+/* Loading css */
+.loading{
+  position: absolute;
+  width: 10%;
+  height: 30px;
+  left:48%;
+  top:48%;
+  margin: 0 auto;
+  transform: translate(-50%,-50%);
+}
+
 /* login box */
 .login-form {
   width: 33%;
@@ -15,8 +39,58 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
+  background-color: #b993a0;
+  opacity: .6;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid #fce4ec;
+  transition-duration: .4s;
+}
+.login-form:hover{
+  opacity: 1;
+  transition-duration: .4s;
 }
 
+/* file upload */
+.fileUpload{
+  width: 300px;
+  overflow-x: hidden;
+}
+.fileUpload *{
+  outline: none;
+}
+.fileUpload .Preview *{
+  width: 100%;
+}
+.fileUpload input{
+  height: 36px;
+  outline: none;
+  border: 1px solid lightgray;
+  padding: 3px 5px;
+}
+.fileUpload button{
+  background-color: white;
+  border: 1px solid lightgray;
+  height: 36px;
+  padding: 3px 10px;
+  margin-top: -1px;
+}
+.fileUpload object,.fileUpload img{
+  max-height: 150px;
+}
+.no-preview-avilable {
+  padding: 25px;
+  color: white;
+  text-align: center;
+  background-color: #000;
+
+}
+.no-preview-avilable a{
+  padding: 5px 15px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+}
 @media screen and (max-width: 567px) {
   .login-form {
     width: 80%!important;
@@ -52,3 +126,4 @@
     transform: rotate(360deg);
   }
 }
+

@@ -14,7 +14,7 @@ export const emailValidation=(value)=>{
 
 export const passwordValidation=(value)=>{
     const errors = []
-    if(value.length != 11) errors.push("Atleast 11 charecter")
+    if(value.length != 2) errors.push("Atleast 2 charecter")
     if(isNaN(value)){
         errors.push("Only numeric value is expected")
     }
