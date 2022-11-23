@@ -15,14 +15,16 @@ const HomePage = () => {
     }
 
     const submitForm = (e) =>{
+        
         e.preventDefault();
-        const formData = new FormData();
-		formData.append('File', browsefile);
-        formData.append('name', formData.name);
-        formData.append('email', formData.email);
-        formData.append('phone', formData.phone);
-
         console.log(formData)
+        const form = new FormData();
+		form.append('File', browsefile);
+        form.append('name', formData.name);
+        form.append('email', formData.email);
+        form.append('phone', formData.phone);
+        form.append('serial', formData.phone);
+        console.log(form)
 
     }
 
@@ -36,6 +38,13 @@ const HomePage = () => {
             <input className="form-control" placeholder="email" type="text" name="email" onChange={(e) => { updateCrudState(e) } } />
             <Form.Label className='align-left'>Phone</Form.Label>
             <input className="form-control" placeholder="phone" type="text" name="phone" onChange={(e) =>  { updateCrudState(e) }}  />
+            <Form.Label className='align-left'>Select Item</Form.Label>
+            <Form.Select aria-label="Default select example" name="serial" onChange={(e) =>  { updateCrudState(e) }}>
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </Form.Select>
             <Form.Label className='align-left'>Upload file</Form.Label>
             <FileUpload onChange={(file) => { setBrowseFile(file) }} file={browsefile} />
             <Button style={{background:'#fce4ec', color : '#000', border:'2px solid #c9b2ba', marginTop:'10px'}} type="submit">

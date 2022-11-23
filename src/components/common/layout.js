@@ -24,6 +24,7 @@ const Layout = ({ name='', username='', email='', isLoggedIn=false, children }) 
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/dashboard'}>Summary</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users'}>Users</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users-redux'}>Users-Redux</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/data-pass-between-component'}>Data Drill[Props + Redux]</Link>
                 </div>
             </div>
 
