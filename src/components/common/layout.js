@@ -5,7 +5,7 @@ import { faEnvelope, faDedent, faIndent } from '@fortawesome/free-solid-svg-icon
 import { connect } from "react-redux";
 
 
-const Layout = ({ name='', username='', email='', isLoggedIn=false, children }) => {
+const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, children }) => {
     const [collapse, setCollapse] = useState(false)
     const toggle = (event) => {
         setCollapse(!collapse);
@@ -25,6 +25,8 @@ const Layout = ({ name='', username='', email='', isLoggedIn=false, children }) 
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users'}>Users</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users-redux'}>Users-Redux</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/data-pass-between-component'}>Data Drill[Props + Redux]</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/use-selector'}>Use selector[Redux]</Link>
+
                 </div>
             </div>
 
@@ -59,17 +61,17 @@ const Layout = ({ name='', username='', email='', isLoggedIn=false, children }) 
     )
 }
 
-const mapStateToPros = (state) =>{
-  return {
-    username : state.userReducer.userName,  
-    name : state.userReducer.name, 
-    email : state.userReducer.email, 
-    isLoggedIn : state.userReducer.isLoggedIn
-  }
+const mapStateToPros = (state) => {
+    return {
+        username: state.userReducer.userName,
+        name: state.userReducer.name,
+        email: state.userReducer.email,
+        isLoggedIn: state.userReducer.isLoggedIn
+    }
 }
 
-const mapDispatchToProps = (dispatch) =>{
-  return { dispatch}
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch }
 }
 
-export default connect(mapStateToPros,mapDispatchToProps)(Layout);
+export default connect(mapStateToPros, mapDispatchToProps)(Layout);
