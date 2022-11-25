@@ -12,7 +12,7 @@ const AllState = () => {
         <div>Person Gender : {userReducer.gender}</div>
         <div>Permissions : {userReducer.permissions.length > 0 &&
             userReducer.permissions.map(single => {
-                return <span style={{ margin: '5px', padding: '5px', borderBottom: '5px solid YELLOW' }}>{single}</span>
+                return <span key={single} style={{ margin: '5px', padding: '5px', borderBottom: '5px solid YELLOW' }}>{single}</span>
             })
         }</div>
 

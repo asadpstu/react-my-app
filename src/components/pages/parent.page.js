@@ -47,7 +47,7 @@ const ParentPage = ({child1Name='',child1Value='', team='', score='', dispatch})
     
     return (<div className="page">
 
-    <Container>
+    
         <Row>
             <Col md={12} lg={12} sm={12}>
                 <div style={{border:'1px solid #DDD',marginTop:'10px'}}>
@@ -78,7 +78,7 @@ const ParentPage = ({child1Name='',child1Value='', team='', score='', dispatch})
                 <Child4Page random={zero}/>
             </Col>
         </Row>
-    </Container>
+    
 
     </div>);
 }
