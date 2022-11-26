@@ -5,25 +5,25 @@ import axios from "axios";
 import { connect } from "react-redux";
 import actionTypes from "../../constants/actionTypes.const";
 
-const UsersRedux = ({dispatch, users = [] }) => {
+const UsersRedux = ({ dispatch, users = [] }) => {
     const [isLoading, setIsLoading] = useState(false)
-    useEffect(()=>{
+    useEffect(() => {
         setIsLoading(true)
         axios.get(apiUrl.userslist).then(response => {
-            setTimeout(()=>{
-                dispatch({type : actionTypes.USER_LIST_TYPICODE, "payload" : response.data})
+            setTimeout(() => {
+                dispatch({ type: actionTypes.USER_LIST_TYPICODE, "payload": response.data })
                 setIsLoading(false)
-            },200)
-            
-        }).catch(error => { console.log("Can't fetch data") }); 
-    },[])
-    
+            }, 200)
+
+        }).catch(error => { console.log("Can't fetch data") });
+    }, [])
+
 
     return (
-        <div style={{marginTop:'16px'}}>
+        <div style={{ marginTop: '16px' }}>
             <div>
                 <h5>User List (Redux Functionality)</h5>
-                <hr/>
+                <hr />
             </div>
             {isLoading ? <div className="loading">
                 Loading...
@@ -42,23 +42,23 @@ const UsersRedux = ({dispatch, users = [] }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map((value,index)=>{
-                        return <tr>
+                    {users && users.map((value, index) => {
+                        return <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{value.name}</td>
                             <td>{value.username}</td>
                             <td>{value.email}</td>
                             <td>
-                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.street}</div>
-                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.suite}</div>
-                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.city}</div>
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.address.street}</div>
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.address.suite}</div>
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.address.city}</div>
                             </td>
                             <td>{value.phone}</td>
                             <td>{value.website}</td>
                             <td>
-                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.name}</div>
-                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.catchPhrase}</div>
-                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.bs}</div>                             
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.company.name}</div>
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.company.catchPhrase}</div>
+                                <div style={{ borderBottom: "1px solid #CCC" }}>{value.company.bs}</div>
                             </td>
                         </tr>
                     })}
@@ -69,16 +69,16 @@ const UsersRedux = ({dispatch, users = [] }) => {
     );
 }
 
-const mapStateToPros = (state) =>{
+const mapStateToPros = (state) => {
     return {
-        "users" : state.userlistReducer.users,
+        "users": state.userlistReducer.users,
     }
 }
 
-const mapDispatchToProps =(dispatch)=>{
+const mapDispatchToProps = (dispatch) => {
     return {
         dispatch
     }
 }
 
-export default connect(mapStateToPros,mapDispatchToProps)(UsersRedux);
+export default connect(mapStateToPros, mapDispatchToProps)(UsersRedux);

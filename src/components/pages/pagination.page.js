@@ -70,7 +70,7 @@ const Pagination = () => {
             {
                 coins.length > 0 && coins.map(single => {
                     return (
-                        <Col lg={2} md={4} sm={6} >
+                        <Col lg={2} md={4} sm={6} key={single.id}>
                             <div style={{ padding: "0px", background: "rgba(249, 191, 221, 0.3)", marginTop: "15px", borderTopRightRadius: "10px", borderTopLeftRadius: "10px" }}>
                                 <div style={{ "text-transform": "Uppercase", textAlign: "left", fontSize: "15px", paddingLeft: "15px", paddingTop: "5px" }}>
                                     {single.id.length > 10 ? single.id.substring(0, 5) + "..." + single.id.substring(single.id.length - 3) : single.id}

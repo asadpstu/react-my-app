@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDedent, faIndent } from '@fortawesome/free-solid-svg-icons'
@@ -6,12 +6,18 @@ import { connect } from "react-redux";
 
 
 const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, children }) => {
+    const navigate = useNavigate()
     const [collapse, setCollapse] = useState(false)
     const toggle = (event) => {
         setCollapse(!collapse);
         event.preventDefault();
         document.body.classList.toggle('sb-sidenav-toggled');
         localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+    }
+
+    const logout = (event) => {
+        localStorage.removeItem("loginInformation")
+        navigate('/')
     }
 
     return (
@@ -21,7 +27,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                 <div className="sidebar-heading border-bottom bg-light">Asad Z.</div>
                 <div className="list-group list-group-flush">
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/home'}>Home</Link>
-                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/dashboard'}>Summary</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/dashboard'}>Dashboard</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users'}>Users</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/users-redux'}>Users-Redux</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/data-pass-between-component'}>Data Drill[Props + Redux]</Link>
@@ -48,6 +54,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                                         <a className="dropdown-item" href="#!">Queries</a>
                                         <div className="dropdown-divider"></div>
                                         <a className="dropdown-item" href="#!">My blogs</a>
+                                        <a className="dropdown-item" href="#!" onClick={(e) => { logout(e) }}>Logout</a>
                                     </div>
                                 </li>
                             </ul>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { connect } from "react-redux";
 
 const Child3Page = ({component='',value='',team='',score=''}) => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 
 const Child4Page = ({ latest_score = '', random = '', posts = [] }) => {

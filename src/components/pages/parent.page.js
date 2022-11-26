@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -28,7 +27,7 @@ const ParentPage = ({ child1Name = '', child1Value = '', team = '', score = '', 
     }, [score])
 
     useEffect(() => {
-        if (team != "") {
+        if (team !== "") {
             dispatch({ type: parent_child.PARENT_TRIGGER_TEAM, payload: [] })
             setTimeout(() => {
                 axios.get('https://jsonplaceholder.typicode.com/posts')

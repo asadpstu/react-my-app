@@ -1,6 +1,6 @@
 import './App.css';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 
 import HomePage from './components/pages/home.page';
@@ -14,15 +14,17 @@ import ParentPage from './components/pages/parent.page';
 import AllState from './components/pages/allState.page';
 import Pagination from './components/pages/pagination.page';
 import Parent from './components/pages/context/parent.page';
-
+import { useEffect } from 'react';
+import actionTypes from './constants/actionTypes.const';
 
 function App({ isLoggedIn = false, theme = "default" }) {
+
 
   return (
     <div className={"App " + theme}>
       <BrowserRouter>
         <Routes>
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route path='/data-pass-between-component' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <ParentPage /> </Layout></ProtectedRoute>} />
           <Route path='/home' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <HomePage /> </Layout></ProtectedRoute>} />
           <Route path='/dashboard' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Dashboard /> </Layout></ProtectedRoute>} />
