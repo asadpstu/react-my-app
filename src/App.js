@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { connect, Connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -14,6 +13,7 @@ import ProtectedRoute from './components/common/protected';
 import ParentPage from './components/pages/parent.page';
 import AllState from './components/pages/allState.page';
 import Pagination from './components/pages/pagination.page';
+import Parent from './components/pages/context/parent.page';
 
 
 function App({ isLoggedIn = false, theme = "default" }) {
@@ -30,7 +30,7 @@ function App({ isLoggedIn = false, theme = "default" }) {
           <Route path='/users-redux' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <UsersRedux /> </Layout></ProtectedRoute>} />
           <Route path='/use-selector' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <AllState /> </Layout></ProtectedRoute>} />
           <Route path='/pagination' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Pagination /> </Layout></ProtectedRoute>} />
-
+          <Route path='/context' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Parent /> </Layout></ProtectedRoute>} />
 
         </Routes>
       </BrowserRouter>

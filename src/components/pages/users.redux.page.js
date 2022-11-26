@@ -49,28 +49,16 @@ const UsersRedux = ({dispatch, users = [] }) => {
                             <td>{value.username}</td>
                             <td>{value.email}</td>
                             <td>
-                                <tr>
-                                    <td colSpan={4}>{value.address.street}</td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4}>{value.address.suite}</td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4}>{value.address.city}</td>
-                                </tr>
+                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.street}</div>
+                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.suite}</div>
+                                <div  style={{borderBottom:"1px solid #CCC"}}>{value.address.city}</div>
                             </td>
                             <td>{value.phone}</td>
                             <td>{value.website}</td>
                             <td>
-                                <tr>
-                                    <td colSpan={4}>{value.company.name}</td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4}>{value.company.catchPhrase}</td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4}>{value.company.bs}</td>
-                                </tr>                                
+                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.name}</div>
+                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.catchPhrase}</div>
+                                <div style={{borderBottom:"1px solid #CCC"}}>{value.company.bs}</div>                             
                             </td>
                         </tr>
                     })}

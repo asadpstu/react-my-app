@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faDedent, faIndent } from '@fortawesome/free-solid-svg-icons'
+import { faDedent, faIndent } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 
 
@@ -27,6 +27,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/data-pass-between-component'}>Data Drill[Props + Redux]</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/use-selector'}>Use selector[Redux]</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/pagination'}>Pagination</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/context'}>React Context</Link>
 
                 </div>
             </div>
@@ -40,7 +41,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>{username}</b></a>
+                                    <Link className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>{username}</b></Link>
                                     <div className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a className="dropdown-item" href="#!">My profile</a>
                                         <a className="dropdown-item" href="#!">Settings</a>
