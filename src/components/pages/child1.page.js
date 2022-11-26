@@ -15,7 +15,7 @@ const Child1Page = ({dispatch}) => {
       })
     }
 
-    return (<div className="page" style={{border:"1px solid #CCC", marginTop:"10px",marginBottom:"10px"}}>
+    return (<div className="page" style={{ marginTop:"10px",marginBottom:"10px"}}>
         <input className="form-control" name="child1" type="text" placeholder="Child 1" onChange={(e)=>{textChange(e)}}/>
     </div>);
 }

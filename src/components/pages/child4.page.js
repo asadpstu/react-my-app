@@ -7,7 +7,7 @@ const Child4Page = ({ latest_score = '', random = '', posts = [] }) => {
     console.log("Posts.....")
   }, [posts])
 
-  return (<div className="page" style={{ background: "#CCC", marginTop: "10px", marginBottom: "10px" }}>
+  return (<div className="page" style={{ marginTop: "10px", marginBottom: "10px" }}>
     <div>{latest_score ? `New Score : ${latest_score} ` : ''}</div>
     <div>New Random Number : {random}</div>
 
