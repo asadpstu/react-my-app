@@ -8,17 +8,18 @@ const Child2 = () => {
     return (
 
         <div>
-            
-            <hr/>
+
+            <hr />
             {
-               countryList && countryList.map(single=>{
-                return (<div key={single.id}> Country : {single.countryName}  | Infected : {single.Infected}  | Death : {single.death} <hr/></div>)
-               }) 
+                countryList && countryList.map(single => {
+                    return (<div key={single.id}> Country : {single.countryName}  | Infected : {single.Infected}  | Death : {single.death} <hr /></div>)
+                })
             }
             <b>Child3 is showing inside Child2 Page</b>
             <Child3 />
         </div>
     )
 }
+
 
 export default Child2;

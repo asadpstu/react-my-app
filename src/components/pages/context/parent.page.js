@@ -1,8 +1,9 @@
 import Child1 from "./child1.page";
 import React from "react";
 import { UserContext } from "../../../Context/User.context";
+import { connect } from "react-redux";
 
-const Parent = () => {
+const Parent = ({ alternateEmail = '', details = '' }) => {
     const object = []
     const CountryList = [
         { id: 1, "countryName": "Bangladesh", "Infected": 100, "death": 3 },
@@ -18,12 +19,26 @@ const Parent = () => {
     ]
     object.push({ countryList: CountryList, worldCup: worldCups })
 
+
     return (
         /* value should be exactly {value} */
         <UserContext.Provider value={object}>
             <div>
                 <div>
-                    <span>Parent -> Child 1 -> Child 2 -> Child 3</span>
+                    <br/>
+                    <div align="center">Parent -> Child 1 -> Child 2 -> Child 3->Popup Modal</div>
+                    <hr />
+                    {
+                        alternateEmail !== '' &&
+                        details !== '' &&
+                        <div>
+                        <b>[pages/context/child3.page.js=> Modal]</b>
+                            
+                            <div><b>Alternate Email :</b> {alternateEmail}</div>
+                            <b>Details:</b> {details}
+                        </div>
+
+                    }
                 </div>
                 <Child1 />
             </div>
@@ -32,4 +47,12 @@ const Parent = () => {
     )
 }
 
-export default Parent;
+
+const mapStateToProps = (state) => {
+    return {
+        alternateEmail: state.userReducer.secondaryEmail,
+        details: state.userReducer.details
+    }
+}
+
+export default connect(mapStateToProps, null)(Parent);
