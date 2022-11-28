@@ -14,6 +14,8 @@ import ParentPage from './components/pages/parent.page';
 import AllState from './components/pages/allState.page';
 import Pagination from './components/pages/pagination.page';
 import Parent from './components/pages/context/parent.page';
+import ReactMemo from './components/pages/memo/ReactMemo.page';
+
 import { useEffect } from 'react';
 import actionTypes from './constants/actionTypes.const';
 
@@ -33,6 +35,7 @@ function App({ isLoggedIn = false, theme = "default" }) {
           <Route path='/use-selector' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <AllState /> </Layout></ProtectedRoute>} />
           <Route path='/pagination' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Pagination /> </Layout></ProtectedRoute>} />
           <Route path='/context' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Parent /> </Layout></ProtectedRoute>} />
+          <Route path='/react-memo' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <ReactMemo /> </Layout></ProtectedRoute>} />
 
         </Routes>
       </BrowserRouter>

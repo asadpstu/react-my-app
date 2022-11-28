@@ -34,6 +34,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/use-selector'}>Use selector[Redux]</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/pagination'}>Pagination</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/context'}>React Context</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/react-memo'}><b>React Memo </b> | <b>useCallback </b> | <b>child to parent data pass</b></Link>
 
                 </div>
             </div>
