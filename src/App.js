@@ -15,9 +15,8 @@ import AllState from './components/pages/allState.page';
 import Pagination from './components/pages/pagination.page';
 import Parent from './components/pages/context/parent.page';
 import ReactMemo from './components/pages/memo/ReactMemo.page';
+import Infinite from './components/pages/onscroll.page';
 import React from 'react';
-
-const LazyloadingUser = React.lazy(() =>  import('../src/components/pages/users.page') )
 
 function App({ isLoggedIn = false, theme = "default" }) {
 
@@ -30,16 +29,13 @@ function App({ isLoggedIn = false, theme = "default" }) {
           <Route path='/data-pass-between-component' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <ParentPage /> </Layout></ProtectedRoute>} />
           <Route path='/home' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <HomePage /> </Layout></ProtectedRoute>} />
           <Route path='/dashboard' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Dashboard /> </Layout></ProtectedRoute>} />
-          <Route path='/users' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout>
-            <React.Suspense fallback="Loading...">
-              <LazyloadingUser />
-            </React.Suspense>
-          </Layout></ProtectedRoute>} />
+          <Route path='/users' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Users /> </Layout></ProtectedRoute>} />
           <Route path='/users-redux' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <UsersRedux /> </Layout></ProtectedRoute>} />
           <Route path='/use-selector' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <AllState /> </Layout></ProtectedRoute>} />
           <Route path='/pagination' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Pagination /> </Layout></ProtectedRoute>} />
           <Route path='/context' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Parent /> </Layout></ProtectedRoute>} />
           <Route path='/react-memo' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <ReactMemo /> </Layout></ProtectedRoute>} />
+          <Route path='/infinite-scroll' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Infinite /> </Layout></ProtectedRoute>} />
 
         </Routes>
       </HashRouter>

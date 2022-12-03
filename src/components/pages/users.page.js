@@ -21,12 +21,12 @@ const Users = () => {
 
     return (
         <div style={{ marginTop: '16px' }}>
-            {<Suspense fallback={<div>Loading data ..............</div>}>
+            {<Suspense fallback={<div>Child1 Loading ...</div>}>
                 {<Child1Lazy data={users} />}
             </Suspense>}
 
 
-            {<Suspense fallback={<div>Loading data ..............</div>}>
+            {<Suspense fallback={<div>Child2 loading ...</div>}>
                 <Child2Lazy data={users} />
             </Suspense>}
 

@@ -6,6 +6,18 @@
   pointer-events: none;
 }
 
+.imgOnscroll{
+  min-height: 200px;
+  min-width: 200px;
+  height: auto;
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 5px;
+  border: 2px solid #61dafb;
+  padding: 10px;
+
+}
+
 /* Backgraund css for login */
 .login-page {
   background-color: #000;
