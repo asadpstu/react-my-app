@@ -4,13 +4,10 @@ import { apiUrl } from "../../apiUrl";
 import axios from "axios";
 const Users = () => {
     const [users, setUsers] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         axios.get(apiUrl.userslist).then(response => {
-            setIsLoading(true)
             setTimeout(() => {
               setUsers(response.data)  
-              setIsLoading(false)
             }, 200);
             
         }).catch(error => { console.log("Can't fetch data") });
@@ -22,9 +19,6 @@ const Users = () => {
                 <h5>User List (useState Functionality)</h5>
                 <hr/>
             </div>
-            {isLoading ? <div className="loading">
-                Loading...
-            </div> : ''}
             <Table striped bordered hover>
                 <thead>
                     <tr>
