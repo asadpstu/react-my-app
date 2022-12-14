@@ -1,12 +1,34 @@
 .App {}
 
+/*Christmas Tree icon by Icons8 */
+.icons8-Christmas-Tree {
+  /* Customizes Christmas Tree icon */
+  width: 150px;
+  height: 150px;
+}
+
+.icon-256 {
+  width: 256px;
+  height: 256px;
+}
+
+.icon-128 {
+  width: 128px;
+  height: 128px;
+}
+
+.icon {
+  /* Customizes all icons at once */
+  display: inline-block;
+}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.imgOnscroll{
+.imgOnscroll {
   min-height: 200px;
   min-width: 200px;
   height: auto;
