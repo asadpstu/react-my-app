@@ -17,6 +17,7 @@ import Parent from './components/pages/context/parent.page';
 import ReactMemo from './components/pages/memo/ReactMemo.page';
 import Infinite from './components/pages/onscroll.page';
 import React from 'react';
+import HOC from './HOC/hoc.page';
 
 function App({ isLoggedIn = false, theme = "default" }) {
 
@@ -36,6 +37,7 @@ function App({ isLoggedIn = false, theme = "default" }) {
           <Route path='/context' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Parent /> </Layout></ProtectedRoute>} />
           <Route path='/react-memo' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <ReactMemo /> </Layout></ProtectedRoute>} />
           <Route path='/infinite-scroll' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <Infinite /> </Layout></ProtectedRoute>} />
+          <Route path='/higher-order-component' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Layout> <HOC/> </Layout></ProtectedRoute>} />
 
         </Routes>
       </HashRouter>

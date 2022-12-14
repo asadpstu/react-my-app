@@ -36,6 +36,7 @@ const Layout = ({ name = '', username = '', email = '', isLoggedIn = false, chil
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/context'}>React Context</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/react-memo'}>React Memo <b>|</b> useCallback <b>|</b> child to parent data pass</Link>
                     <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/infinite-scroll'}>Infinite scrolling</Link>
+                    <Link className="list-group-item list-group-item-action list-group-item-light p-3" to={'/higher-order-component'}>HOC</Link>
 
                 </div>
             </div>
